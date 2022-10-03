@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "react-query";
 import "./App.css";
+import { ReactQueryDevtools } from "react-query/devtools";
 import { HomePage } from "./components/Home.page";
 import { RQSuperHeroesPage } from "./components/RQSuperHeroes.page";
 import { SuperHeroesPage } from "./components/SuperHeroes.page";
@@ -38,6 +39,9 @@ function App() {
           </Switch>
         </div>
       </Router>
+      {/* list of query identified by id */}
+      {/* Data - res.data 보여줌 */}
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
