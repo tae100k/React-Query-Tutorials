@@ -1,6 +1,5 @@
 //1. import hook from react-query
 import axios from "axios";
-import { useEffect } from "react";
 import { useQuery } from "react-query"; // all data fetching hook
 
 // results is an object that includes all the info that i've ever need
@@ -8,7 +7,7 @@ import { useQuery } from "react-query"; // all data fetching hook
 // isLoading - loading status, data - holding the data
 // just made it into the function to avoid inline function
 const fetchSuperHeroes = () => {
-  return axios.get("http://localhost:4000/superheroes1");
+  return axios.get("http://localhost:4000/superheroes");
 };
 
 export const RQSuperHeroesPage = () => {
