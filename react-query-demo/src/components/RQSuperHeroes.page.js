@@ -1,7 +1,32 @@
+//1. import hook from react-query
+import { useQuery } from "react-query"; // all data fetching hook
+import axios from "axios";
+
+// results is an object that includes all the info that i've ever need
+// so you have to distructure.
+// isLoading - loading status, data - holding the data
+// just made it into the function to avoid inline function
+const fetchSuperHeroes = () => {
+  return axios.get("http://localhost:4000/superheroes");
+};
+
 export const RQSuperHeroesPage = () => {
+  // results is an object that includes all the info that i've ever need
+  // so you have to distructure.
+  // isLoading - loading status, data - holding the data
+  const { isLoading, data } = useQuery("super-heroes", fetchSuperHeroes); // at least 2 argument (unikey to identify this query)
+  // second argument : call back func that returns a promise (make a get request to server)
+
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
   return (
     <>
       <h2>React Query Super Heroes Page</h2>
+      {data?.data.map((hero) => (
+        <div key={hero.name}>{hero.name}</div>
+      ))}
     </>
   );
 };
