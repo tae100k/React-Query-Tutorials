@@ -43,6 +43,11 @@ export const RQSuperHeroesPage = () => {
       enabled: false,
       onSuccess,
       onError,
+      // automatically receive data as argument
+      // select: (data) => {
+      //   const superHeroNames = data.data.map((hero) => hero.name);
+      //   return superHeroNames;
+      // },
     }
   );
   // at least 2 argument (unikey to identify this query)
@@ -67,6 +72,10 @@ export const RQSuperHeroesPage = () => {
       {data?.data.map((hero) => (
         <div key={hero.name}>{hero.name}</div>
       ))}
+      {/* heroName refers to superHeroNames in select */}
+      {/* {data.map((heroName) => (
+        <div>{heroName}</div>
+      ))} */}
     </>
   );
 };
